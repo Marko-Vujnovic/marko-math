@@ -1,0 +1,16 @@
+Matrix:
+				ctors: identity, translation, rotation, scale, PerspectiveProjection, OrthographicProjection
+				Operators: <<
+				Funcs: transpose(), invert()
+Matrix _ Matrix: *, ==
+
+Vec unary ops: <<
+    float magnitude(const vec3&);
+    vec3 normalized(const vec3&);
+Vec _ Vec: *, /, +, -, ==
+    float distance(const vec3&, const vec3& other);
+    vec3 cross(const vec3&, const vec3& other);
+    float dot(const vec3&, const vec3& other);
+Vec _ float: *, /, +, -
+
+Matrix _ Vec: *

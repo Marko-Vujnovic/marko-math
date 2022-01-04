@@ -1,0 +1,11 @@
+at(mat, x, y) as an alt to into(mat)
+struct AnyMatrix { void* obj; };
+				struct MatrixAccessor { void* obj; float(*atFunc)(void* obj, int x, int y); };
+
+Matrix
+				mat4 new_Rotate2(const Quaternion& quat);
+				mat4 new_LookAt(const vec3& fromPos, const vec3& toPos, const vec3& toUp);
+
+Quaternion
+				Quaternion new_FromEulerAngles(const vec3& angles);
+				vec3 toEulerAngles(const Quaternion&);

@@ -1,0 +1,8 @@
+{
+    "name": "marko-math",
+    "version": "1.0.1",
+    "dependencies": [
+				"gtest"
+    ],
+    "builtin-baseline": "9502b2044d7fbe7a885f824f58e0b672e8b74886"
+}

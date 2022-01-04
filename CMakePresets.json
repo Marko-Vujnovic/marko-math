@@ -1,0 +1,86 @@
+
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "linux-clang",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build/linux/clang",
+						"cacheVariables": {
+								    "CMAKE_BUILD_TYPE": "Debug",
+										"CMAKE_C_COMPILER": "clang",
+										"CMAKE_CXX_COMPILER": "clang++",
+										"CMAKE_TOOLCHAIN_FILE": { "value": "/home/marko/ProgramsInstalledByCloningTheRepo/vcpkg/scripts/buildsystems/vcpkg.cmake", "type": "FILEPATH" },
+										"FIRST_CACHE_VARIABLE": { "type": "BOOL", "value": "OFF" }
+								},
+"environment": {
+        "MY_ENVIRONMENT_VARIABLE": "Test",
+        "PATH": "$env{HOME}/ninja/bin:$penv{PATH}"
+      }
+        },
+				{
+            "name": "default",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "build/linux/gcc",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+        },
+				{
+            "name": "linux-gcc",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "build/linux/gcc",
+						"cacheVariables": {
+								"CMAKE_C_COMPILER": "gcc",
+								"CMAKE_CXX_COMPILER": "g++",
+								"CMAKE_TOOLCHAIN_FILE": { "value": "/home/marko/ProgramsInstalledByCloningTheRepo/vcpkg/scripts/buildsystems/vcpkg.cmake", "type": "FILEPATH" }
+						}
+        },
+        {
+            "name": "macos",
+            "generator": "Xcode",
+            "binaryDir": "build_${presetName}"
+        },
+        {
+            "name": "windows",
+            "generator": "Visual Studio 16 2019",
+            "architecture": "Win32",
+            "binaryDir": "build_${presetName}"
+        }
+    ],
+		  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "linux-clang"
+    },
+		{
+      "name": "linux-gcc",
+      "configurePreset": "linux-gcc"
+    },
+		{
+      "name": "linux-clang",
+      "configurePreset": "linux-clang"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "output": {"outputOnFailure": true},
+      "execution": {"noTestsAction": "error", "stopOnFailure": true}
+    },
+		{
+      "name": "linux-clang",
+      "configurePreset": "linux-clang",
+      "output": {"outputOnFailure": true},
+      "execution": {"noTestsAction": "error", "stopOnFailure": true}
+    },
+		{
+      "name": "linux-gcc",
+      "configurePreset": "linux-gcc",
+      "output": {"outputOnFailure": true},
+      "execution": {"noTestsAction": "error", "stopOnFailure": true}
+    }
+  ]
+}

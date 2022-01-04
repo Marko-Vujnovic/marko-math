@@ -1,0 +1,14 @@
+_*
+*_
+
+**/Makefile
+**/cmake_install.cmake
+compile_commands.json
+
+vcpkg_installed/
+vcpkg-manifest-install.log
+
+.cache/
+build/
+
+.env
